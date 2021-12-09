@@ -1,0 +1,12 @@
+{
+  "name": "pharmacy",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "docker:build": "docker-compose build",
+    "docker:down": "docker-compose down",
+    "docker:up": "docker-compose up -d"
+  },
+  "author": "",
+  "license": "ISC"
+}
