@@ -105,7 +105,7 @@ function OrdersScreen(props) {
                 <td>{order.totalPrice}</td>
                 <td>{order.user.email}</td>
                 <td>
-                  <span>{order.status.name}</span>
+                  <span>{order.status?.name}</span>
                   <br />
                   <select onChange={(e) => setStatus(order, e.target)}>
                     {statusList.map((x) => (

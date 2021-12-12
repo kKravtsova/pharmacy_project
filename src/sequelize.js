@@ -5,20 +5,17 @@ import orderModel from './models/orderModel';
 import categoryModel from './models/categoryModel';
 import deliveryModel from './models/deliveryModel';
 import roleModel from './models/roleModel';
-import config from './config';
 import { v4 as uuid } from 'uuid';
 import bcrypt from 'bcrypt';
 
-const sequelize = new Sequelize(
-  config.PG_DATABASE,
-  config.PG_USER,
-  config.PG_PASSWORD,
-  {
-    host: config.PG_HOST,
-    port: config.PG_PORT,
-    dialect: 'postgres',
-  }
-);
+const sequelize = new Sequelize(process.env.DATABASE_URL, {
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false,
+    },
+  },
+});
 
 categoryModel(sequelize);
 userModel(sequelize);
@@ -30,10 +27,10 @@ roleModel(sequelize);
 const setUpDatabase = async () => {
   console.log('Starting setting up');
   const statuses = [
-    { name: 'In progress' },
-    { name: 'Ready' },
-    { name: 'Taken' },
-    { name: 'Canceled' },
+    { id: 0, name: 'In progress' },
+    { id: 1, name: 'Ready' },
+    { id: 2, name: 'Taken' },
+    { id: 3, name: 'Canceled' },
   ];
   const categories = [
     { name: 'Medicaments' },
@@ -95,7 +92,7 @@ sequelize
   .authenticate()
   .then(() => {
     console.log('Connected to PG');
-    return sequelize.sync({ force: true });
+    return sequelize.sync();
   })
   .then(() => {
     console.log('Sync complite');
