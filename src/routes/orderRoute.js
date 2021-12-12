@@ -48,16 +48,7 @@ router.get('/mine', isAuth, async (req, res) => {
     attributes: ['id', 'totalPrice', 'createdAt'],
   });
 
-  const ordersS = await sequelize.models.orderStatus.findAll();
-
-  console.log(ordersS.map((e) => e.get()));
-  res.send(
-    orders.map((order) => {
-      console.log(order.get());
-      console.log(order.get({ plain: true }));
-      return order.get({ plain: true });
-    })
-  );
+  res.send(orders.map((order) => order.get({ plain: true })));
 });
 
 router.get('/:id', isAuth, async (req, res) => {

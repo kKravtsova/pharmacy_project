@@ -13,7 +13,7 @@ function ProductsScreen(props) {
   const [title, setTitle] = useState('');
   const [price, setPrice] = useState('');
   const [image, setImage] = useState('');
-  const [category, setCategory] = useState(0);
+  const [category, setCategory] = useState(1);
   const [categoryList, setCategoryList] = useState([]);
   const [countInStock, setCountInStock] = useState('');
   const [description, setDescription] = useState('');
@@ -47,14 +47,13 @@ function ProductsScreen(props) {
   }, [successSave, successDelete]);
 
   const openModal = (product) => {
-    console.log(products);
     setModalVisible(true);
     setId(product.id);
     setTitle(product.title);
     setPrice(product.price);
     setDescription(product.description);
-    setImage(product.image);
-    setCategory(product.id);
+    setImage(product.imagePath);
+    setCategory(product.categoryId);
     setCountInStock(product.countInStock);
   };
   const submitHandler = (e) => {
