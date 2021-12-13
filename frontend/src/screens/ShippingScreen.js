@@ -53,6 +53,7 @@ function ShippingScreen(props) {
                 name='address'
                 id='address'
                 onChange={(e) => setAddress(e.target.value)}
+                required
               ></input>
             </li>
             <li>
@@ -62,6 +63,7 @@ function ShippingScreen(props) {
                 name='city'
                 id='city'
                 onChange={(e) => setCity(e.target.value)}
+                required
               ></input>
             </li>
             <li>
@@ -71,6 +73,7 @@ function ShippingScreen(props) {
                 name='postalCode'
                 id='postalCode'
                 onChange={(e) => setPostalCode(e.target.value)}
+                required
               ></input>
             </li>
             <li>

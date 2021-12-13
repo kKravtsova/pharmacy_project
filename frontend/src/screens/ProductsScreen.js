@@ -137,6 +137,7 @@ function ProductsScreen(props) {
                   value={title}
                   id='title'
                   onChange={(e) => setTitle(e.target.value)}
+                  required
                 ></input>
               </li>
               <li>
@@ -147,6 +148,7 @@ function ProductsScreen(props) {
                   value={price}
                   id='price'
                   onChange={(e) => setPrice(e.target.value)}
+                  required
                 ></input>
               </li>
               <li>
@@ -169,6 +171,7 @@ function ProductsScreen(props) {
                   value={countInStock}
                   id='countInStock'
                   onChange={(e) => setCountInStock(e.target.value)}
+                  required
                 ></input>
               </li>
               <li>
@@ -190,6 +193,7 @@ function ProductsScreen(props) {
                   value={description}
                   id='description'
                   onChange={(e) => setDescription(e.target.value)}
+                  required
                 ></textarea>
               </li>
               <li>

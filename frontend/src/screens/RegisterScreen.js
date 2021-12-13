@@ -57,10 +57,31 @@ function RegisterScreen(props) {
         errors.rePassword =
           value === password ? '' : 'Repassword must be similar to password!';
         break;
+      case 'birthDate':
+        errors.birthDate = underAgeValidate(value)
+          ? ''
+          : 'Sorry, you need to be older than 18';
+        break;
       default:
         break;
     }
     setErrors(errors);
+  };
+
+  const underAgeValidate = (birthday) => {
+    // it will accept two types of format yyyy-mm-dd and yyyy/mm/dd
+    const optimizedBirthday = birthday.replace(/-/g, '/');
+
+    //set date based on birthday at 01:00:00 hours GMT+0100 (CET)
+    const myBirthday = new Date(optimizedBirthday);
+
+    // set current day on 01:00:00 hours GMT+0100 (CET)
+    const currentDate = new Date().toJSON().slice(0, 10) + ' 01:00:00';
+
+    // calculate age comparing current date and borthday
+    const myAge = ~~((Date.now(currentDate) - myBirthday) / 31557600000);
+
+    return myAge > 18;
   };
 
   const submitHandler = (e) => {
@@ -87,6 +108,7 @@ function RegisterScreen(props) {
               name='name'
               id='name'
               onChange={(e) => setName(e.target.value)}
+              required
             ></input>
             {errors.name && <span className='form-error'>{errors.name}</span>}
           </li>
@@ -97,6 +119,7 @@ function RegisterScreen(props) {
               name='surname'
               id='surname'
               onChange={(e) => setSurname(e.target.value)}
+              required
             ></input>
             {errors.surname && (
               <span className='form-error'>{errors.surname}</span>
@@ -109,6 +132,7 @@ function RegisterScreen(props) {
               name='email'
               id='email'
               onChange={(e) => setEmail(e.target.value)}
+              required
             ></input>
             {errors.email && <span className='form-error'>{errors.email}</span>}
           </li>
@@ -119,7 +143,11 @@ function RegisterScreen(props) {
               name='birthDate'
               id='birthDate'
               onChange={(e) => setBirthDate(e.target.value)}
+              required
             ></input>
+            {errors.birthDate && (
+              <span className='form-error'>{errors.birthDate}</span>
+            )}
           </li>
           <li>
             <label htmlFor='password'>Password</label>
@@ -128,6 +156,7 @@ function RegisterScreen(props) {
               id='password'
               name='password'
               onChange={(e) => setPassword(e.target.value)}
+              required
             ></input>
             {errors.password && (
               <span className='form-error'>{errors.password}</span>
@@ -140,6 +169,7 @@ function RegisterScreen(props) {
               id='rePassword'
               name='rePassword'
               onChange={(e) => setRePassword(e.target.value)}
+              required
             ></input>
             {errors.rePassword && (
               <span className='form-error'>{errors.rePassword}</span>

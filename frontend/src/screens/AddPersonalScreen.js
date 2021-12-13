@@ -123,6 +123,7 @@ function AddPersonalScreen(props) {
               id='name'
               onChange={(e) => setName(e.target.value)}
               value={name}
+              required
             ></input>
             {errors.name && <span className='form-error'>{errors.name}</span>}
           </li>
@@ -134,6 +135,7 @@ function AddPersonalScreen(props) {
               id='surname'
               onChange={(e) => setSurname(e.target.value)}
               value={surname}
+              required
             ></input>
             {errors.surname && (
               <span className='form-error'>{errors.surname}</span>
@@ -147,6 +149,7 @@ function AddPersonalScreen(props) {
               id='email'
               onChange={(e) => setEmail(e.target.value)}
               value={email}
+              required
             ></input>
             {errors.email && <span className='form-error'>{errors.email}</span>}
           </li>
@@ -158,6 +161,7 @@ function AddPersonalScreen(props) {
               id='birthDate'
               onChange={(e) => setBirthDate(e.target.value)}
               value={birthDate}
+              required
             ></input>
           </li>
           <li>
@@ -168,6 +172,7 @@ function AddPersonalScreen(props) {
               name='password'
               onChange={(e) => setPassword(e.target.value)}
               value={password}
+              required
             ></input>
             {errors.password && (
               <span className='form-error'>{errors.password}</span>
@@ -181,6 +186,7 @@ function AddPersonalScreen(props) {
               name='rePassword'
               onChange={(e) => setRePassword(e.target.value)}
               value={rePassword}
+              required
             ></input>
             {errors.rePassword && (
               <span className='form-error'>{errors.rePassword}</span>

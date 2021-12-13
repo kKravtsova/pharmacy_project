@@ -69,6 +69,7 @@ function SigninScreen(props) {
               name='email'
               id='email'
               onChange={(e) => setEmail(e.target.value)}
+              required
             ></input>
             {errors.email && <span className='form-error'>{errors.email}</span>}
           </li>
@@ -79,6 +80,7 @@ function SigninScreen(props) {
               id='password'
               name='password'
               onChange={(e) => setPassword(e.target.value)}
+              required
             ></input>
             {errors.password && (
               <span className='form-error'>{errors.password}</span>
