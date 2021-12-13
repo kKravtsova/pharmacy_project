@@ -110,6 +110,7 @@ router.post('/register', async (req, res) => {
       surname: req.body.surname,
       email: req.body.email,
       birthDate: new Date(req.body.birthDate),
+      roleId: 0,
       password,
     });
 
@@ -127,6 +128,7 @@ router.post('/register', async (req, res) => {
       token: getToken(newUser),
     });
   } catch (e) {
+    console.log(e);
     return res.status(401).send({ message: 'Invalid User Data.' });
   }
 });
