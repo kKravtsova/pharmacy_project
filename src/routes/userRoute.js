@@ -109,7 +109,7 @@ router.post('/register', async (req, res) => {
       name: req.body.name,
       surname: req.body.surname,
       email: req.body.email,
-      birthDate: req.body.birthDate,
+      birthDate: new Date(req.body.birthDate),
       password,
     });
 
