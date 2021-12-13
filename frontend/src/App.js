@@ -132,19 +132,6 @@ function App() {
           <div className='footer-category'>
             <ul>
               <li>
-                <Link to='/category/Medicine'>Medicine</Link>
-              </li>
-              <li>
-                <Link to='/category/Devices'>Devices </Link>
-              </li>
-            </ul>
-          </div>
-          <div className='footer-category'>
-            <ul>
-              <li>
-                <Link to='/category/Pills'>Pills</Link>
-              </li>
-              <li>
                 <Link to='/Discount'>Discount</Link>
               </li>
             </ul>
@@ -154,6 +141,10 @@ function App() {
               <li>
                 <Link to='/PaymentInfo'>Payment</Link>
               </li>
+            </ul>
+          </div>
+          <div className='footer-category'>
+            <ul>
               <li>
                 <Link to='/delivery'>Delivery</Link>
               </li>
@@ -166,6 +157,10 @@ function App() {
                   <a href='tel:+380671112233'>+38-067-111-22-33</a>
                 </span>
               </li>
+            </ul>
+          </div>
+          <div className='footer-category'>
+            <ul>
               <li>
                 <a href='mailto:aaa@gmail.com'>aaa@gmail.com</a>
               </li>
