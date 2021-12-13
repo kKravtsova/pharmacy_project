@@ -31,7 +31,7 @@ function HomeScreen(props) {
 
   return (
     <>
-      {category && <h2 halign='center'>{category}</h2>}
+      {category && <h2 align='center'>{category}</h2>}
 
       <ul className='filter'>
         <li>
