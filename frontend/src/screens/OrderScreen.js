@@ -26,7 +26,7 @@ function OrderScreen(props) {
               {order.address}, {order.city}, {order.postalCode}
             </div>
             <h3>Status</h3>
-            <div>{order.status.name}</div>
+            <div>{order.status?.name}</div>
           </div>
           <div>
             <ul className='cart-list-container'>

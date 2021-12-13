@@ -51,6 +51,7 @@ const orderModel = (sequelize) => {
       },
       statusId: {
         type: DataTypes.INTEGER,
+        allowNull: false,
         defaultValue: 0,
       },
     },

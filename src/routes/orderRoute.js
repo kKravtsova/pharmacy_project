@@ -44,7 +44,7 @@ router.get('/mine', isAuth, async (req, res) => {
     where: {
       userId: req.user.id,
     },
-    include: { model: sequelize.models.orderStatus, as: 'status' },
+    include: [{ model: sequelize.models.orderStatus, as: 'status' }],
     attributes: ['id', 'totalPrice', 'createdAt'],
   });
 

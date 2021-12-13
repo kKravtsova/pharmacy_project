@@ -24,9 +24,9 @@ function HomeScreen(props) {
     e.preventDefault();
     dispatch(listProducts(category, searchKeyword, sortOrder));
   };
-  const sortHandler = (e) => {
-    setSortOrder(e.target.value);
-    dispatch(listProducts(category, searchKeyword, sortOrder));
+  const sortHandler = (value) => {
+    setSortOrder(value);
+    dispatch(listProducts(category, searchKeyword, value));
   };
 
   return (
@@ -45,7 +45,10 @@ function HomeScreen(props) {
         </li>
         <li>
           Sort By{' '}
-          <select name='sortOrder' onChange={sortHandler}>
+          <select
+            name='sortOrder'
+            onChange={(e) => sortHandler(e.target.value)}
+          >
             <option value=''>Newest</option>
             <option value='lowest'>Lowest</option>
             <option value='highest'>Highest</option>

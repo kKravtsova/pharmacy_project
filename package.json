@@ -2,11 +2,40 @@
   "name": "pharmacy",
   "version": "1.0.0",
   "main": "index.js",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "eslint-plugin-react": "^7.19.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "multer": "^1.4.2",
+    "pg": "^8.7.1",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.9.0",
+    "sequelize-cli": "^6.3.0",
+    "uuid": "^8.3.2",
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/node": "^7.8.4",
+    "@babel/preset-env": "^7.8.4"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react-hooks": "^2.5.1",
+    "nodemon": "^2.0.2"
+  },
   "scripts": {
-    "docker:build": "docker-compose build",
-    "docker:down": "docker-compose down",
-    "docker:up": "docker-compose up -d"
+    "start": "babel-node src/server.js",
+    "build": "cd frontend && npm install && npm run build && cd .."
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "engines": {
+    "node": "v16.13.0",
+    "npm": "8.1.3"
+  }
 }

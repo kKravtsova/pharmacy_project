@@ -16,9 +16,6 @@ const productModel = (sequelize) => {
       title: {
         allowNull: false,
         type: DataTypes.STRING,
-        validate: {
-          is: /^\w{3,}$/,
-        },
         unique: true,
       },
       imagePath: {
